@@ -1,0 +1,981 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400..900&family=Share+Tech+Mono&display=swap');
+
+p, span, .counter {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body, .subheader span, .news-text, .menu-icon, button {
+  font-family: "Share Tech Mono", monospace; 
+}
+
+body {
+  background-color: lightgray;
+  background-attachment: fixed;
+  color: black;
+  margin: 0; 
+  padding: 0;
+  max-height: 70vh;
+}
+
+/* dark mode body styling */
+body.dark {
+  background-color: gray;
+  color: white;
+}
+
+.app-container {
+  padding: 0; 
+}
+
+.layout {
+  /* max-width: 1440px; */
+  margin: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #D1D9E1;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border: 2px double gray;
+  position: relative;
+  background-attachment: fixed;
+}
+
+/* dark body layout styling */
+body.dark .layout {
+  background-color: #4A5568; 
+  border: 2px double lightgray;
+}
+
+/* content wrapper styling */
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+  border-radius: 0;
+}
+
+/* header styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: -5px;
+  background-color: #D1D9E1;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+/* dark body header styling */
+body.dark header {
+  background-color: #4A5568; 
+} 
+
+/* logo text styling */
+.logo-text {
+  font-size: 24px;
+  font-weight: 900;
+  color: black;
+  padding: 0;
+}
+
+.logo-text span {
+  font-size: 25px;
+  font-weight: 900;
+  color: #007bff;
+}
+
+/* menu icon styling */
+.menu-icon {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 10px;
+  position: relative;
+}
+
+.menu-icon:hover {
+  background-color: #D1D9E1;
+  color: #007bff;
+}
+
+/* dark body menu icon styling */
+body.dark .menu-icon {
+  background-color: black;
+  border: 1px solid gray;
+}
+
+body.dark .menu-icon:hover {
+  background-color: #4A5568;
+}
+
+/* toggling to menu */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 10;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* menu overlay open animation */
+.menu-overlay.open {
+  transform: translateX(0);
+}
+
+/* dark mode for menu overlay and contents */
+body.dark .menu-overlay {
+  /* background-color: rgba(74, 85, 104, 0.95);  */
+  background-color: black;
+}
+
+/* displaying menu content */
+.menu-content {
+  padding: 50px;
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* the menu close symbol 'X' */
+.menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #007bff;
+  transition: transform 0.3s ease;
+}
+
+.menu-close:hover {
+  transform: rotate(90deg);
+  color: black;
+}
+
+/* dark mode for menu close symbol 'X' */
+body.dark .menu-close:hover {
+  color: white;
+}
+
+/* menu content sections */
+.menu-section h3 {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 20px;
+  color: #007bff;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: color 0.3s ease;
+}
+
+body.dark .menu-section h3:hover {
+  color: white;
+}
+
+.menu-section h3:hover {
+  color: black;
+}
+
+/* menu dropdown */
+.menu-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.menu-dropdown.open {
+  max-height: 500px; 
+  opacity: 1;
+}
+
+/* menu category item */
+.menu-item {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 16px;
+  color: black;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateX(10px);
+  color: #007bff;
+}
+
+body.dark .menu-item:hover {
+  transform: translateX(10px);
+  color: #007bff;
+}
+
+/* team */
+.team-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px 250px;
+}
+
+.team-member {
+  text-align: center;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 2px solid #007bff;
+}
+
+.team-member h4 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+}
+
+.team-member p {
+  font-size: 12px;
+  color: gray;
+}
+
+body.dark .team-member p {
+  color: lightgray;
+}
+
+/* about the horizon */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 250px;
+  margin-top: -20px;
+  animation: fadeInLeft 0.5s ease forwards;
+  text-align: center;
+}
+
+.horizon-logo {
+  width: 100px;
+  height: 100px;
+  background: url(images/horizon-logo-lm.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-top: -25px;
+  /* border-radius: 50%; */
+}
+
+body.dark .horizon-logo {
+  width: 100px;
+  height: 100px;
+  background: url(images/horizon-logo-dm.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-top: -15px; 
+}
+
+.about-container p {
+  font-size: 14px;
+  color: black;
+  margin-top: -5px;
+}
+
+/* dark mode for menu item, team member and about container p */
+body.dark .menu-item,
+body.dark .team-member h4,
+body.dark .about-container p {
+  color: white;
+}
+
+/* keyframes animations for menu overlay */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* contact */
+.contact-item {
+  animation: fadeInUp 0.5s ease forwards;
+  padding: 10px 0;
+}
+
+.contact-item a {
+  color: black; 
+  text-decoration: none;
+  align-items: center;
+}
+
+.contact-item:hover,
+.contact-item a:hover {
+  transform: translateX(10px);
+  color: #007bff;
+}
+
+/* keyframes animations for team member, about container and contact */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* dark mode for contact */
+body.dark .contact-item,
+body.dark .contact-item a {
+  color: white; 
+}
+
+body.dark .contact-item:hover,
+body.dark .contact-item a:hover {
+  color: #007bff;
+}
+
+/* subheader styling  */
+.subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid gray;
+  padding: 8px 16px;
+  margin: 0 16px;
+  border-radius: 50px;
+  color: black;
+  font-size: 14px;
+  position: relative; 
+  overflow: hidden;
+}
+
+.breaking-news {
+  display: flex;
+  align-items: center;
+  position: relative; 
+  overflow: hidden; 
+  font-size: 14px; 
+}
+
+/* news text styling */
+.news-text {
+  color: #007bff; 
+  white-space: nowrap;
+  animation: slideText 20s linear infinite;
+}
+
+@keyframes slideText {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* social icon styling */
+.social-icon {
+  font-size: 14px;
+  color: black;
+  cursor: pointer;
+  border: 1px solid gray;
+  padding: 2px 2px;
+  border-radius: 100%;
+  margin: 0 10px;
+}
+
+.social-icon:hover {
+  color: #007bff;
+}
+
+/* main content styling */
+.main-content {
+  flex: 2;
+  padding: 20px;
+  background-color: #D1D9E1;
+  background-image: url(images/Alexa+-removebg-preview.png);
+  background-repeat: no-repeat;
+  background-position: 75% center;
+  background-size: contain;
+}
+
+/* dark body main content styling */
+body.dark .main-content {
+  background-color: #4A5568; 
+}
+
+.tech-notation {
+  position: relative;
+  display: inline-flex; 
+  align-items: center;
+  color: black; 
+  font-size: 10px; 
+  font-weight: 900;
+  margin: 10px 0;
+  padding: 5px; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  z-index: 1;
+}
+
+body.dark .tech-notation {
+  color: white;
+}
+
+/* tech-savvy notation */
+.tech-notation::before {
+  content: '⚙';
+  color: #007bff;
+  font-size: 16px; 
+  margin-right: 5px;
+  display: inline-block; 
+}
+
+.main-content h1 {
+  font-size: 30px;
+  color: black;
+  margin-top: -10px;
+}
+
+.main-content-div {
+  display: flex;
+  gap: 40px;
+}
+
+.main-content p {
+  font-size: 10px;
+  font-weight: 900;
+  color: gray;
+}
+
+body.dark .main-content p {
+  color: white;
+}
+
+.read-more-button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 14px;
+  height: 40px;
+  margin-top: 90px;
+}
+
+/* dark body read more button styling */
+body.dark .read-more-button {
+  background-color: black;
+  color: white;
+}
+
+.read-more-button:hover {
+  background-color: #D1D9E1;
+  color: #007bff;
+  border: 1px solid gray;
+}
+
+body.dark .read-more-button:hover {
+  background-color: #4A5568;
+  color: #007bff;
+}
+
+/* sidebar styling */
+.sidebar {
+  flex: .5;
+  padding: 10px;
+  margin: 20px 15px;
+  background-color: #D1D9E1;
+  border: 1px solid gray;
+  border-radius: 50px; 
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+/* dark body sidebar styling */
+body.dark .sidebar {
+  background-color: #4A5568; 
+  border: 1px solid gray; 
+}
+
+.sidebar-item {
+  padding: 10px;
+  position: relative; 
+}
+
+.sidebar-item h3 {
+  font-size: 10px;
+  color: black; 
+  margin: -5px 0 10px 0; 
+  padding: 0;
+}
+
+.sidebar-item p {
+  font-size: 8px;
+  font-weight: 900;
+  color: gray;
+  margin: 0 0 20px 0; 
+}
+
+body.dark .sidebar-item p {
+  color: white;
+}
+
+.sidebar-meta {
+  display: flex;
+  font-size: 8px;
+  font-weight: 900;
+  color: gray;
+  text-align: justify;
+  gap: 20px;
+}
+
+.sidebar-arrow {
+  position: absolute;
+  top: 10%;
+  right: 20px; 
+  transform: translateY(-50%); 
+  font-size: 10px;
+  color: black;
+  padding: 10px 10px;
+  border-radius: 100%;
+  margin: 0 10px;
+  background-color: white;
+}
+
+body.dark .sidebar-arrow {
+  background-color: black; 
+  color: white;
+}
+
+/* .sidebar-arrow:hover {
+  color: #007bff;
+  border: 1px solid gray;
+  background-color: #D1D9E1;
+}
+
+body.dark .sidebar-arrow:hover {
+  background-color: #4A5568;
+  color: #007bff;
+} */
+
+.sidebar-img {
+  margin-top: 10px; 
+}
+
+.sidebar-img img {
+  background-color: #D1D9E1;
+  width: 100%;
+  height: 100px;
+  border: 1px solid gray;
+  border-radius: 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+/* dark body sidebar-img img */
+body.dark .sidebar-img img {
+  background-color: #4A5568;
+}
+
+/* counter styling */
+.counter {
+  position: absolute;
+  top: 300px;
+  left: 70%; 
+  transform: translateX(-50%); 
+  padding: 20px 10px; 
+  border: 1px solid white;
+  border-radius: 20px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 10px; 
+  color: black; 
+  z-index: 3; 
+  text-align: center;
+}
+
+/* dark body counter */
+body.dark .counter {
+  border: 1px solid black;
+}
+
+/* solar system theme toggle container styling */
+.theme-toggle-container {
+  font-size: 10px; 
+  width: 4em; 
+  height: 4em;
+  position: relative;
+  cursor: pointer;
+  margin: 20px 600px; 
+  top: -445px;
+  border-top-left-radius: 20px;
+}
+
+/* dark body solar system theme toggle container styling */
+body.dark .theme-toggle-container {
+  background-color: #4A5568; 
+}
+
+/* light body solar system theme toggle container styling */
+body.light .theme-toggle-container {
+  background-color: #D1D9E1; 
+}
+
+/* switching from light mode to dark mode styling */
+.theme-toggle-container .sun {
+  position: absolute;
+  width: 1em; 
+  height: 1em; 
+  background-color: gray; /* color of the moon in dark mode */
+  border-radius: 50%;
+  left: 4em;
+}
+
+/*  switching from dark mode to light mode styling */
+.theme-toggle-container .moon {
+  position: absolute;
+  width: 1em; 
+  height: 1em; 
+  background-color: yellow; /* color of the sun in light mode */
+  border-radius: 50%; 
+  left: 4em;
+}
+
+.theme-toggle-container .moon::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* satelite in the orbit styling */
+.theme-toggle-container .satelite {
+  position: absolute;
+  top: 0.5em; 
+  left: 0.5em; 
+  width: 3em; 
+  height: 3em; 
+  border-style: solid;
+  border-width: 0.01em 0.01em 0 0; 
+  border-radius: 50%;
+  animation: orbit 30s linear infinite;
+}
+
+/* orbit keyframes for satelite */
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.theme-toggle-container .satelite::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%; 
+  top: 0.28em; 
+  right: 0.28em; 
+  width: 0.3em; 
+  height: 0.3em; 
+  background-color: red;
+}
+
+/* blog overlay */
+.blog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 10;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  overflow-y: auto;
+}
+
+body.dark .blog-overlay {
+  background-color: black;
+}
+
+.blog-overlay.open {
+  transform: translateX(0);
+}
+
+.blog-content {
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #007bff;
+  transition: transform 0.3s ease;
+}
+
+body.dark .blog-close {
+  color: white;
+}
+
+.blog-close:hover {
+  transform: rotate(90deg);
+  color: black;
+}
+
+body.dark .blog-close:hover {
+  color: #007bff;
+}
+
+/* blog article */
+.blog-article {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: white;
+  border: 5px double #007bff;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* it will be hidden until visible */
+  transform: translateX(-20px); /* start off-screen */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+body.dark .blog-article {
+  background-color: black;
+}
+
+.blog-article.visible {
+  opacity: 1;
+  transform: translateX(0); /* animate in when visible */
+}
+
+/* Blog Image */
+.blog-image {
+  width: 30%;
+  height: 50%;
+  object-fit: cover; 
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.see-more {
+  cursor: pointer;
+  color: #007bff;
+  font-weight: 900;
+}
+
+/* blog actions container */
+.blog-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: flex-end;
+}
+
+/* action buttons */
+.action-button {
+  background: none;
+  border: 1px solid gray;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: black;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.action-button:hover {
+  color: #007bff;
+  background-color: #f0f0f0;
+}
+
+body.dark .action-button {
+  color: white;
+  border-color: lightgray;
+}
+
+body.dark .action-button:hover {
+  background-color: #5a677a;
+  color: #007bff;
+}
+
+/* comment section */
+.comment-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ddd;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+body.dark .comment-section {
+  background-color: #5a677a;
+  border-color: lightgray;
+}
+
+.existing-comments {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+body.dark .comment {
+  border-color: gray;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 12px;
+  color: black;
+}
+
+body.dark .comment p {
+  color: white;
+}
+
+.comment-input,
+.comment-textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 14px;
+}
+
+.comment-textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+.comment-submit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+/* category overlay */
+.category-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 10;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  overflow-y: auto;
+}
+
+body.dark .category-overlay {
+  background-color: black;
+}
+
+.category-overlay.open {
+  transform: translateX(0);
+}
+
+.category-content {
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #007bff;
+  transition: transform 0.3s ease;
+}
+
+body.dark .category-close {
+  color: white;
+}
+
+.category-close:hover {
+  transform: rotate(90deg);
+  color: black;
+}
+
+body.dark .category-close:hover {
+  color: #007bff;
+}
+
+/* category article */
+.category-article {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: white;
+  border: 5px double #007bff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+body.dark .category-article {
+  background-color: black;
+} 
+
+.category-article.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* category image */
+.category-image {
+  width: 30%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* category-overlay see more */
+.category-overlay .see-more {
+  font-size: 16px;
+  font-weight: 900;
+  color: #007bff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 10px;
+}
+
+
