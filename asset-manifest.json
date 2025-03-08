@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/the-horizon-platform/static/css/main.b639fe55.css",
+    "main.js": "/the-horizon-platform/static/js/main.4160f2f8.js",
+    "static/js/453.ec5eb111.chunk.js": "/the-horizon-platform/static/js/453.ec5eb111.chunk.js",
+    "static/media/Alexa+-removebg-preview.png": "/the-horizon-platform/static/media/Alexa+-removebg-preview.7db47e24f1702cd93bbc.png",
+    "index.html": "/the-horizon-platform/index.html",
+    "main.b639fe55.css.map": "/the-horizon-platform/static/css/main.b639fe55.css.map",
+    "main.4160f2f8.js.map": "/the-horizon-platform/static/js/main.4160f2f8.js.map",
+    "453.ec5eb111.chunk.js.map": "/the-horizon-platform/static/js/453.ec5eb111.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b639fe55.css",
+    "static/js/main.4160f2f8.js"
+  ]
+}
